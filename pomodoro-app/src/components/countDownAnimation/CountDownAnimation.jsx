@@ -1,20 +1,15 @@
-import React, { useContext } from 'react';
-import { CountDownCircleTimer } from 'react-countdown-circle-timer';
-import { SettingContext } from '../context/SettingsContext';
-const CountDownAnimation = ({
-	key = 1,
-	timer = 20,
-	animate = false,
-	children,
-}) => {
-	const { stopTimer } = useContext(SettingContext);
+import { useContext } from 'react';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import { SettingsContext } from '../context/SettingsContext';
+const CountDownAnimation = ({ mykey, timer, animate, children }) => {
+	const { stopTimer } = useContext(SettingsContext);
 
 	return (
-		<CountDownCircleTimer
-			key={key}
+		<CountdownCircleTimer
+			key={mykey}
 			isPlaying={animate}
 			duration={timer * 60}
-			color={[
+			colors={[
 				['#fe6f6b', 0.33],
 				['#fe6f6b', 0.33],
 				['#fe6f6b', 0.33],
@@ -26,7 +21,7 @@ const CountDownAnimation = ({
 				stopTimer();
 			}}>
 			{children}
-		</CountDownCircleTimer>
+		</CountdownCircleTimer>
 	);
 };
 

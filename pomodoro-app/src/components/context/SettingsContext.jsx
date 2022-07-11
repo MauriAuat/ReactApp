@@ -1,9 +1,9 @@
 import React, { createContext, useState } from 'react';
 
-export const SettingContext = createContext(); //constante que será pasada como parametro a traves de useContext en otros componentes y permitira desestructurar todo lo que sea pasado a traves de value
+export const SettingsContext = createContext(); //constante que será pasada como parametro a traves de useContext en otros componentes y permitira desestructurar todo lo que sea pasado a traves de value
 
 const SettingsContextProvider = (props) => {
-	const [pomodoro, setPomodoro] = useState(0); //variable que ejecuta la app configurado en 0 de forma predeterminada
+	const [pomodoro, setPomodoro] = useState(1); //variable que ejecuta la app configurado en 0 de forma predeterminada
 	const [executing, setExecuting] = useState({}); //objeto que tiene las configuraciones provenientes del componente setPomodoro
 	const [startAnimate, setStartAnimate] = useState(false);
 
@@ -56,30 +56,29 @@ const SettingsContextProvider = (props) => {
 		}
 	};
 
-	const children = ({ remainingTimer }) => {
-		const minutes = Math.floor(remainingTimer / 60);
-		const seconds = remainingTimer % 60;
+	const children = ({ remainingTime }) => {
+		const minutes = Math.floor(remainingTime / 60);
+		const seconds = remainingTime % 60;
 
-		return `${minutes}m: ${seconds}s`;
+		return `${minutes}: ${seconds}`;
 	};
 
 	return (
-		<SettingContext.Provider
+		<SettingsContext.Provider
 			value={{
 				stopTimer,
-				updateExecute,
 				pomodoro,
 				executing,
+				setCurrentTimer,
+				settingBtn,
+				children,
 				startAnimate,
 				startTimer,
 				pauseTimer,
-				settingBtn,
-				setCurrentTimer,
 				updateExecute,
-				children,
 			}}>
 			{props.children}
-		</SettingContext.Provider>
+		</SettingsContext.Provider>
 	);
 };
 

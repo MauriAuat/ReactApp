@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   cursor: url(http://www.rw-designer.com/cursor-extern.php?id=57309), auto
 }
-button:hover {cursor: url(https://cur.cursors-4u.net/food/foo-5/foo441.cur), auto !important;}
+button:hover,input:hover {cursor: url(https://cur.cursors-4u.net/food/foo-5/foo441.cur), auto !important;}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

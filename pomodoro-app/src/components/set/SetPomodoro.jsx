@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import Button from '../button/Button';
-import { SettingContext } from '../context/SettingsContext';
+import { SettingsContext } from '../context/SettingsContext';
 const SetPomodoro = () => {
-	const { updateExecute } = useContext(SettingContext);
+	const { updateExecute } = useContext(SettingsContext);
 	const [newTimer, setNewTimer] = React.useState({
 		work: 0.3,
 		short: 0.2,
