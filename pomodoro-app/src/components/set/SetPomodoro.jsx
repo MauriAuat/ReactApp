@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from '../button/Button';
+import { SettingContext } from '../context/SettingsContext';
 const SetPomodoro = () => {
+	const { updateExecute } = useContext(SettingContext);
 	const [newTimer, setNewTimer] = React.useState({
 		work: 0.3,
 		short: 0.2,
@@ -33,12 +35,11 @@ const SetPomodoro = () => {
 			default:
 				break;
 		}
-		console.log(newTimer);
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		//updateExecute(newTimer)
+		updateExecute(newTimer);
 	};
 
 	return (
