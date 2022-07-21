@@ -1,9 +1,10 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import SetPomodoro from './components/set/SetPomodoro';
 import { SettingsContext } from './components/context/SettingsContext';
 import Button from './components/button/Button';
 import CountDownAnimation from './components/countDownAnimation/CountDownAnimation';
-
+import Header from './components/header/Header';
+import './App.css';
 const App = () => {
 	const {
 		pomodoro,
@@ -17,9 +18,9 @@ const App = () => {
 		settingBtn,
 	} = useContext(SettingsContext);
 
-	console.log('Hola' + pomodoro);
 	return (
 		<div className='container'>
+			<Header> </Header>
 			<h1>Pomodoro</h1>
 			{0 !== pomodoro ? (
 				<>
