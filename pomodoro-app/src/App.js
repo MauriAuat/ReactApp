@@ -1,9 +1,9 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import SetPomodoro from './components/set/SetPomodoro';
 import { SettingsContext } from './components/context/SettingsContext';
 import Button from './components/button/Button';
 import CountDownAnimation from './components/countDownAnimation/CountDownAnimation';
-import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+
 const App = () => {
 	const {
 		pomodoro,
@@ -17,9 +17,6 @@ const App = () => {
 		settingBtn,
 	} = useContext(SettingsContext);
 
-	useEffect(() => {
-		updateExecute(executing);
-	}, [executing, startAnimate]);
 	console.log('Hola' + pomodoro);
 	return (
 		<div className='container'>
@@ -82,13 +79,6 @@ const App = () => {
 			) : (
 				<>
 					<SetPomodoro />
-					{/* <CountdownCircleTimer
-						isPlaying
-						duration={7}
-						colors={['#004777', '#F7B801', '#A30000', '#A30000']}
-						colorsTime={[7, 5, 2, 0]}>
-						{({ remainingTime }) => remainingTime}
-					</CountdownCircleTimer> */}
 				</>
 			)}
 		</div>
